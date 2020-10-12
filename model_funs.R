@@ -230,7 +230,7 @@ plot_wealth_gini = function(wealth, gini_index, param_combinations, maxtime, dt)
                 override.aes=list(
                     color=c("magenta","cyan3","gray40"),
                     size=0.5,
-                    ## fill=c("white","white","grey90"),
+                    fill=c("white","white","white"),
                     alpha=c(1,1,1)), ncol=3, byrow=TRUE
             )
         )
@@ -368,7 +368,7 @@ plot_wealth_gini2 = function(wealth, gini_index, param_combinations, maxtime, dt
                 override.aes=list(
                     color=c("magenta","cyan3","gray40"),
                     size=0.5,
-                    ## fill=c("white","white","grey90"),
+                    fill=c("white","white","white"),
                     alpha=c(1,1,1)), ncol=3, byrow=TRUE
             )
         )

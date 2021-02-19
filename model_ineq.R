@@ -91,6 +91,7 @@ nc = 2
 ns = 36
 nt = maxtime / dt + 1
 nr = 50
+## nr = 1
 
 ## Scenario 1: Build back better, leave the poor behind
 ## ####################################################
@@ -468,10 +469,14 @@ p1 =
     ylim(c(-5,5)) +
     scale_x_continuous(breaks=seq(0,5000,1000), labels=c("0","10","20","30","40","50")) +
     facet_wrap(.~community) + 
+    labs(tag="(a)") + 
     theme(
+        ## plot.tag.position=c(0.08,0.99),
+        plot.tag=element_text(size=rel(0.8)),
         strip.text.x=element_text(size=rel(0.8)),
         legend.position="none"
     )
+p1
 
 p2 =
     ggplot(
@@ -491,7 +496,11 @@ p2 =
         labels=c("0","10","20","30","40","50")
     ) +
     facet_wrap(.~community) +
-    theme(legend.position="none")
+    labs(tag="(b)") + 
+    theme(
+        plot.tag=element_text(size=rel(0.8)),
+        legend.position="none"
+    )
 
 p3 =
     ggplot(
@@ -511,7 +520,11 @@ p3 =
         labels=c("0","10","20","30","40","50")
     ) +
     facet_wrap(.~community) + 
-    theme(legend.position="none")
+    labs(tag="(c)") + 
+    theme(
+        plot.tag=element_text(size=rel(0.8)),
+        legend.position="none"
+    )
 
 levels(F_cube$scenario) = labels
 p4 =
@@ -531,7 +544,11 @@ p4 =
     scale_x_continuous(breaks=seq(0,5000,1000), labels=c("0","10","20","30","40","50")) +
     facet_wrap(.~community) + 
     scale_color_discrete(name=element_blank()) + 
-    theme(legend.position="bottom") +
+    theme(
+        plot.tag=element_text(size=rel(0.8)),
+        legend.position="bottom"
+    ) +
+    labs(tag="(d)") + 
     guides(
         color=guide_legend(
             override.aes=list(
@@ -541,7 +558,7 @@ p4 =
             ncol=2,
             byrow=TRUE
         )
-    )
+    ) 
 
 pl <- lapply(list(p1,p2,p3,p4), ggplotGrob)
 pl <- Reduce(gridExtra::gtable_rbind, pl)
@@ -584,7 +601,11 @@ p1 =
         name=element_blank(),
         labels=labels
     ) +
-    theme(legend.position="bottom") +
+    labs(tag="(a)") + 
+    theme(
+        plot.tag=element_text(size=rel(0.8)),
+        legend.position="bottom"
+    ) +
     guides(
         color = guide_legend(
             override.aes = list(alpha = 1),
@@ -620,7 +641,11 @@ p2 =
         name=element_blank(),
         labels=labels
     ) +
-    theme(legend.position="bottom") +
+    labs(tag="(b)") + 
+    theme(
+        plot.tag=element_text(size=rel(0.8)),
+        legend.position="bottom"
+    ) +
     guides(
         color = guide_legend(
             override.aes = list(alpha = 1),
